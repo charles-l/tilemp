@@ -49,7 +49,7 @@ end
 ```
 
 And voila!
-[screenshot](i/screenshot.png)
+![screenshot](i/screenshot.png)
 
 See `t/main.lua` for a full example file.
 
