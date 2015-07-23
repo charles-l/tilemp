@@ -18,6 +18,7 @@ function love.load()
         table.insert(rects, r)
     end)
     tilemp.parse('test')
+    print(tilemp.get_tile(0, 0)) -- access the (0,0) tile. This is in terms of tiles not pixels.
 end
 
 function love.draw()

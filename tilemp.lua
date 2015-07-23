@@ -2,6 +2,22 @@ local tilemp = {}
 
 local handlers = {funcs = {}, imgs = {}}
 
+local function sample(table)
+    return table[math.random(1, #table)]
+end
+
+function tilemp.get_tile(x, y)
+    -- TODO: make this smarter
+    for _, v in pairs(handlers.imgs) do
+        for _, i in pairs(v.instances) do
+            if i.x == x and i.y == y then
+                return i
+            end
+        end
+    end
+    return nil
+end
+
 function tilemp.bind(c, bindee, quad)
     -- Generic
     if type(bindee) == 'function' then handlers.funcs[c] = bindee; return end
@@ -13,7 +29,6 @@ function tilemp.bind(c, bindee, quad)
         handlers.imgs[c].instances = {}
         handlers.imgs[c].img = bindee
         handlers.imgs[c].quad = quad
-        return
     end
 end
 
