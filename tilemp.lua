@@ -24,7 +24,7 @@ function tilemp.bind(c, bindee, quad)
 
     -- Assuming Love2D images for now...
     if type(bindee) == 'userdata' and bindee:type() == 'Image' then
-        if quad == nil then error("quad must be defined for tilemap!"); return end
+        if quad == nil then error("quad must be defined for tilemap!", 2); return end
         handlers.imgs[c] = {}
         handlers.imgs[c].instances = {}
         handlers.imgs[c].img = bindee
