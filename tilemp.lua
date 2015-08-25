@@ -18,6 +18,10 @@ function tilemp.get_tile(x, y)
     return nil
 end
 
+function tilemp.clear()
+    handlers.imgs = {}
+end
+
 function tilemp.bind(c, bindee, quad)
     -- Generic
     if type(bindee) == 'function' then handlers.funcs[c] = bindee; return end
@@ -34,7 +38,7 @@ end
 
 function tilemp.parse(filename)
     local y = 0
-    for l in io.lines(filename) do
+    for l in love.filesystem.lines(filename) do
         local x = 0
         for c in string.gmatch(l, '.') do
             if handlers.funcs[c] ~= nil then
